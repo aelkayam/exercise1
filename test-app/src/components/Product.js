@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import ProductsContext from "../contexts/ProductsContext";
 import "./Product.css";
 
 export default function Product(props) {
   const [counter, setCounter] = useState(0);
+  const { addToCart } = useContext(ProductsContext);
 
   return (
     <div className="product-card" key={props.key}>
@@ -19,6 +21,7 @@ export default function Product(props) {
       >
         -
       </button>
+      <button onClick={addToCart(props)}>ADD TO CART</button>
     </div>
   );
 }

@@ -1,25 +1,35 @@
-import React, {useState, useEffect} from 'react'
-import ProductList from './components/ProductList';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import ProductList from "./components/ProductList";
+import ProductsContext from "./contexts/ProductsContext";
+import Cart from "./components/Cart";
+import "./App.css";
 
 let defaultProducts = [];
 
 function App() {
   const [productsList, setProductsList] = useState(defaultProducts);
+  const [cartProducts, setCartProducts] = useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
-        setProductsList(json.slice(0,10));
+        setProductsList(json.slice(0, 10));
         defaultProducts = json;
       });
   }, []);
 
+  const addToCart = (prop) => {
+    setCartProducts([...cartProducts, prop]);
+  };
+
   return (
-    <div className="App">
-      <ProductList products = {productsList}/>
-    </div>
+    <ProductsContext.Provider value={{ addToCart }}>
+      <div className="App">
+        <Cart cartProducts={cartProducts} />
+        <ProductList products={productsList} />
+      </div>
+    </ProductsContext.Provider>
   );
 }
 
