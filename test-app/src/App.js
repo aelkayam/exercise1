@@ -5,10 +5,11 @@ import Cart from "./components/Cart";
 import "./App.css";
 
 let defaultProducts = [];
+let defaultCartProducts = [];
 
 function App() {
   const [productsList, setProductsList] = useState(defaultProducts);
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState(defaultCartProducts);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")

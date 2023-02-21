@@ -12,5 +12,9 @@ export default function ProductList(props) {
     />
   ));
 
-  return <div className="products-list"> {products} </div>;
+  return (
+    <div className="products-list">
+      <h2>Products List</h2> {products}{" "}
+    </div>
+  );
 }

@@ -1,9 +1,14 @@
 import React from "react";
-import Product from "./Product";
+import CartItem from "./CartItem";
 
 export default function Cart(props) {
   const cart = props.cartProducts.map((item) => (
-    <Product key={item.id} title={item.title} price={item.price} />
+    <CartItem key={item.id} title={item.title} />
   ));
-  return <div className="cart">{cart}</div>;
+  return (
+    <div className="cart">
+      <h2>Shopping Cart</h2>
+      {cart}
+    </div>
+  );
 }
