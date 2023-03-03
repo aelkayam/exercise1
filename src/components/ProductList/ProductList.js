@@ -1,5 +1,6 @@
 import React from "react";
-import Product from "./Product";
+import Product from "../Product/Product";
+import "./ProductList.css";
 
 export default function ProductList(props) {
   const products = props.products.map((item) => (
@@ -14,7 +15,7 @@ export default function ProductList(props) {
 
   return (
     <div className="products-list">
-      <h2>Products List</h2> {products}{" "}
+      <div className="products-header">Products List</div> {products}
     </div>
   );
 }
