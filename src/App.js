@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import ProductList from "./components/ProductList/ProductList";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductsContext from "./contexts/ProductsContext";
-import Cart from "./components/Cart";
+import { Navbar } from "./components/Navbar/Navbar";
+import { ShopPage } from "./pages/ShopPage";
+import { CartPage } from "./pages/CartPage";
 import "./App.css";
 
 let defaultProducts = [];
@@ -27,8 +29,13 @@ function App() {
   return (
     <ProductsContext.Provider value={{ addToCart }}>
       <div className="App">
-        <Cart cartProducts={cartProducts} />
-        <ProductList products={productsList} />
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<ShopPage />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Routes>
+        </Router>
       </div>
     </ProductsContext.Provider>
   );

@@ -1,5 +1,6 @@
 import React from "react";
-import CartItem from "./CartItem";
+import CartItem from "../CartItem";
+import "./Cart.css";
 
 export default function Cart(props) {
   const cart = props.cartProducts.map((item) => (
