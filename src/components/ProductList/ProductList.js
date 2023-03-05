@@ -1,21 +1,19 @@
 import React from "react";
-import Product from "../Product/Product";
+import { Product } from "../Product/Product.js";
 import "./ProductList.css";
 
-export default function ProductList(props) {
-  const products = props.products.map((item) => (
-    <Product
-      key={item.id}
-      title={item.title}
-      price={item.price}
-      description={item.description}
-      src={item.image}
-    />
-  ));
-
+export const ProductList = (props) => {
   return (
     <div className="products-list">
-      <div className="products-header">Products List</div> {products}
+      {props.products.map((item) => (
+        <Product
+          key={item.id}
+          title={item.title}
+          price={item.price}
+          description={item.description}
+          src={item.image}
+        />
+      ))}
     </div>
   );
-}
+};

@@ -6,21 +6,10 @@ import { ShopPage } from "./pages/ShopPage";
 import { CartPage } from "./pages/CartPage";
 import "./App.css";
 
-let defaultProducts = [];
 let defaultCartProducts = [];
 
 function App() {
-  const [productsList, setProductsList] = useState(defaultProducts);
   const [cartProducts, setCartProducts] = useState(defaultCartProducts);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => {
-        setProductsList(json.slice(0, 10));
-        defaultProducts = json;
-      });
-  }, []);
 
   const addToCart = (prop) => {
     setCartProducts([...cartProducts, prop]);

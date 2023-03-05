@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import ProductsContext from "../../contexts/ProductsContext";
 import "./Product.css";
 
-export default function Product(props) {
+export const Product = (props) => {
   const [counter, setCounter] = useState(0);
   const { addToCart } = useContext(ProductsContext);
 
@@ -24,4 +24,4 @@ export default function Product(props) {
       <button onClick={() => addToCart(props)}>ADD TO CART</button>
     </div>
   );
-}
+};
