@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
-import ProductsContext from "../../contexts/ProductsContext";
+import { ShopContext } from "../../contexts/ShopContext";
 import "./Product.css";
 
 export const Product = (props) => {
+  const { addToCart, cartItems } = useContext(ShopContext);
   const [counter, setCounter] = useState(0);
-  const { addToCart } = useContext(ProductsContext);
+
+  const cartItemAmount = cartItems[props.id];
 
   return (
     <div className="product-card">
@@ -25,8 +27,13 @@ export const Product = (props) => {
         >
           -
         </button>
-        <button className="addToCart-button" onClick={() => addToCart(props)}>
-          ADD TO CART
+        <button
+          className="addToCart-button"
+          onClick={() => {
+            addToCart(props.id, counter);
+          }}
+        >
+          ADD TO CART {cartItemAmount > 0 && <>({cartItemAmount})</>}
         </button>
       </div>
     </div>

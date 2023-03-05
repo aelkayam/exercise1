@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProductList } from "../components/ProductList/ProductList";
+import { ShopContext } from "../contexts/ShopContext";
 import "./ShopPage.css";
 
-let defaultProducts = [];
-
 export const ShopPage = () => {
-  const [productsList, setProductsList] = useState(defaultProducts);
+  const { productsList, setInitialProductsList } = useContext(ShopContext);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
-        setProductsList(json.slice(0, 10));
-        defaultProducts = json;
+        setInitialProductsList(json, 10);
       });
   }, []);
 

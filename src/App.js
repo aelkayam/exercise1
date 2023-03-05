@@ -1,22 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ProductsContext from "./contexts/ProductsContext";
+import { ShopContextProvider } from "./contexts/ShopContext";
 import { Navbar } from "./components/Navbar/Navbar";
 import { ShopPage } from "./pages/ShopPage";
 import { CartPage } from "./pages/CartPage";
 import "./App.css";
 
-let defaultCartProducts = [];
-
 function App() {
-  const [cartProducts, setCartProducts] = useState(defaultCartProducts);
-
-  const addToCart = (prop) => {
-    setCartProducts([...cartProducts, prop]);
-  };
-
   return (
-    <ProductsContext.Provider value={{ addToCart }}>
+    <ShopContextProvider>
       <div className="App">
         <Router>
           <Navbar />
@@ -26,7 +18,7 @@ function App() {
           </Routes>
         </Router>
       </div>
-    </ProductsContext.Provider>
+    </ShopContextProvider>
   );
 }
 

@@ -8,7 +8,7 @@ export const CartPage = () => {
   const [cartProducts, setCartProducts] = useState(defaultCartProducts);
 
   return (
-    <div>
+    <div className="cart-page">
       <p>
         <b>Your Cart</b>
       </p>
