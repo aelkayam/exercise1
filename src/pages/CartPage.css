@@ -1,0 +1,12 @@
+.cart-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-title {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 40px;
+}

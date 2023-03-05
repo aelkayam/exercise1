@@ -31,11 +31,15 @@ export const ShopContextProvider = (props) => {
     }));
   };
 
-  const removeFromCart = (productID, amount) => {
+  const removeFromCart = (productID) => {
     setCartItems((prev) => ({
       ...prev,
-      [productID]: prev[productID] + amount,
+      [productID]: prev[productID] - 1,
     }));
+  };
+
+  const updateCartItemAmount = (newAmount, itemID) => {
+    setCartItems((prev) => ({ ...prev, [itemID]: newAmount }));
   };
 
   const contextValue = {
@@ -44,6 +48,7 @@ export const ShopContextProvider = (props) => {
     cartItems,
     addToCart,
     removeFromCart,
+    updateCartItemAmount,
   };
 
   return (

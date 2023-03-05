@@ -17,16 +17,24 @@ export const Product = (props) => {
         <p>
           <b>{props.title}</b>
         </p>
-        <p>price: {props.price}</p>
-        <button onClick={() => setCounter(counter + 1)}>+</button>
-        {counter}
-        <button
-          onClick={() =>
-            counter > 0 ? setCounter(counter - 1) : setCounter(0)
-          }
-        >
-          -
-        </button>
+        <p>price: ${props.price}</p>
+        <div className="product-amount">
+          <button
+            className="control-amount-button"
+            onClick={() => setCounter(counter + 1)}
+          >
+            +
+          </button>
+          {counter}
+          <button
+            className="control-amount-button"
+            onClick={() =>
+              counter > 0 ? setCounter(counter - 1) : setCounter(0)
+            }
+          >
+            -
+          </button>
+        </div>
         <button
           className="addToCart-button"
           onClick={() => {

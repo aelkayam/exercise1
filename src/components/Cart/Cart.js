@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CartItem } from "../CartItem/CartItem";
+import { ShopContext } from "../../contexts/ShopContext";
 import "./Cart.css";
 
-export const Cart = (props) => {
+export const Cart = () => {
+  const { productsList, cartItems } = useContext(ShopContext);
   return (
-    <div className="cart">
-      {props.cartProducts.map((item) => (
-        <CartItem key={item.id} title={item.title} />
-      ))}
+    <div className="cart-items">
+      {productsList.map((product) => {
+        if (cartItems[product.id] !== 0) {
+          return (
+            <CartItem
+              key={product.id}
+              id={product.id}
+              title={product.title}
+              price={product.price}
+              src={product.image}
+            />
+          );
+        }
+        return <></>;
+      })}
     </div>
   );
 };
