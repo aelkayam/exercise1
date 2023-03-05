@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ProductList } from "../components/ProductList/ProductList";
+import "./ShopPage.css";
 
 let defaultProducts = [];
 

@@ -1,3 +1,41 @@
 .product-card {
-  border: 2px solid;
+  border-radius: 15px;
+  width: 300px;
+  height: 350px;
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card img {
+  width: 200px;
+  height: auto;
+}
+
+.product-description {
+  text-align: center;
+}
+
+.product-card:hover {
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+.addToCart-button {
+  background-color: transparent;
+  border: 2px solid rgb(19, 19, 19);
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+.addToCart-button:hover {
+  background-color: rgb(19, 19, 19);
+  color: white;
+  cursor: pointer;
 }
