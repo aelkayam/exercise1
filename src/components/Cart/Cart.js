@@ -19,6 +19,7 @@ export const Cart = () => {
             />
           );
         }
+        return null;
       })}
     </div>
   );
